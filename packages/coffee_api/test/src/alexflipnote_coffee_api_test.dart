@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:alexflipnote_coffee_api/alexflipnote_coffee_api.dart';
+import 'package:coffee_api/coffee_api.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
@@ -11,9 +11,9 @@ class MockResponse extends Mock implements http.Response {}
 class FakeUri extends Fake implements Uri {}
 
 void main() {
-  group('AlexflipnoteCoffeeApi', () {
+  group('AlexflipnoteCoffeeAPI', () {
     late http.Client httpClient;
-    late AlexflipnoteCoffeeApi api;
+    late AlexflipnoteCoffeeAPI api;
 
     setUpAll(() {
       registerFallbackValue(FakeUri());
@@ -21,12 +21,12 @@ void main() {
 
     setUp(() {
       httpClient = MockHttpClient();
-      api = AlexflipnoteCoffeeApi(httpClient: httpClient);
+      api = AlexflipnoteCoffeeAPI(httpClient: httpClient);
     });
 
     group('constructor', () {
       test('does not require an httpClient', () {
-        expect(AlexflipnoteCoffeeApi(), isNotNull);
+        expect(AlexflipnoteCoffeeAPI(), isNotNull);
       });
     });
 

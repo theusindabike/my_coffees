@@ -1,4 +1,4 @@
-import 'package:alexflipnote_coffee_api/alexflipnote_coffee_api.dart';
+import 'package:coffee_api/coffee_api.dart';
 import 'package:test/test.dart';
 
 void main() {

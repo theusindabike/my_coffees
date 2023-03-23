@@ -1,7 +1,7 @@
 import 'dart:convert';
 
+import 'package:coffee_api/coffee_api.dart';
 import 'package:http/http.dart' as http;
-import 'package:alexflipnote_coffee_api/alexflipnote_coffee_api.dart';
 
 class CoffeeRequestFailure implements Exception {}
 
@@ -10,9 +10,9 @@ class CoffeNotFoundFailure implements Exception {}
 /// {@template alexflipnote_coffee_api}
 /// Dart API Client which wraps the [Open Meteo API](https://coffee.alexflipnote.dev/).
 /// {@endtemplate}
-class AlexflipnoteCoffeeApi {
+class AlexflipnoteCoffeeAPI {
   /// {@macro alexflipnote_coffee_api}
-  AlexflipnoteCoffeeApi({http.Client? httpClient})
+  AlexflipnoteCoffeeAPI({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
   static const _baseUrlCoffee = 'coffee.alexflipnote.dev';
