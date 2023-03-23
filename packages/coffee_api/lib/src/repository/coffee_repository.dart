@@ -1,8 +1,8 @@
 import 'package:coffee_api/coffee_api.dart';
 
 class CoffeeRepository {
-  CoffeeRepository({AlexflipnoteCoffeeAPI? alexflipnoteCoffeeAPI})
-      : _coffeeAPI = alexflipnoteCoffeeAPI ?? AlexflipnoteCoffeeAPI();
+  CoffeeRepository({AlexflipnoteCoffeeAPI? coffeeAPI})
+      : _coffeeAPI = coffeeAPI ?? AlexflipnoteCoffeeAPI();
 
   final AlexflipnoteCoffeeAPI _coffeeAPI;
 
