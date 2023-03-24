@@ -16,7 +16,7 @@ class Coffee extends Equatable {
     return Coffee(imageUrl: coffeeFromRepository.imageUrl);
   }
 
-  static const empty = Coffee(imageUrl: '');
+  static const empty = Coffee(imageUrl: '--');
 
   //TODO: Should I use Uri type?
   final String imageUrl;

@@ -1,7 +1,6 @@
 run:
 	flutter run --flavor development --target lib/main_development.dart
 
-
 build:
 	very_good packages get -r
 

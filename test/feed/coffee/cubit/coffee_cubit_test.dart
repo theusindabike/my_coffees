@@ -7,7 +7,7 @@ import 'package:coffee_api/coffee_api.dart' as coffee_api;
 
 const coffeeImageUrl = 'https://coffee.alexflipnote.dev/Y6itKvnyMps_coffee.jpg';
 
-class MockCoffecoffeeRepository extends Mock
+class MockCoffeeRepository extends Mock
     implements coffee_api.CoffeeRepository {}
 
 class MockCoffee extends Mock implements coffee_api.Coffee {}
@@ -20,7 +20,7 @@ void main() {
 
     setUp(() async {
       coffee = MockCoffee();
-      coffeeRepository = MockCoffecoffeeRepository();
+      coffeeRepository = MockCoffeeRepository();
 
       when(() => coffee.imageUrl).thenReturn(coffeeImageUrl);
       when(
