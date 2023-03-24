@@ -17,10 +17,12 @@ class CoffeeCubit extends Cubit<CoffeeState> {
 
       final coffeeUIResult = Coffee.fromRepository(coffeeRepositoryResult);
 
-      emit(state.copyWith(
-        status: CoffeeStatus.success,
-        coffee: coffeeUIResult,
-      ));
+      emit(
+        state.copyWith(
+          status: CoffeeStatus.success,
+          coffee: coffeeUIResult,
+        ),
+      );
     } on Exception {
       emit(state.copyWith(status: CoffeeStatus.failure));
     }

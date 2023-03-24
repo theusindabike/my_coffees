@@ -5,17 +5,15 @@ class CoffeeLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          'Loading Coffee',
-          style: theme.textTheme.headlineSmall,
-        ),
-        const Padding(
-          padding: EdgeInsets.all(16),
-          child: CircularProgressIndicator(),
+        Center(
+          child: Container(
+            color: Colors.grey[200],
+            height: 300,
+            width: 320,
+          ),
         ),
       ],
     );

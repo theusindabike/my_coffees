@@ -10,7 +10,7 @@ class CoffeeError extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          'im an coffee error widget',
+          'Sorry, but something goes wrong. Please try again later.',
           style: theme.textTheme.headlineSmall,
         ),
       ],
