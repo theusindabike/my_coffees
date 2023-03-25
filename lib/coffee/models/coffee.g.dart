@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: implicit_dynamic_parameter
-
 part of 'coffee.dart';
 
 // **************************************************************************
@@ -19,3 +17,7 @@ Coffee _$CoffeeFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
       fieldKeyMap: const {'imageUrl': 'image_url'},
     );
+
+Map<String, dynamic> _$CoffeeToJson(Coffee instance) => <String, dynamic>{
+      'image_url': instance.imageUrl,
+    };

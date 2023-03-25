@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_coffees/feed/coffee/coffee.dart';
+import 'package:my_coffees/coffee/coffee.dart';
 
 class CoffeePage extends StatelessWidget {
   const CoffeePage({super.key});
@@ -35,6 +36,39 @@ class _CoffeeViewState extends State<CoffeeView> {
       appBar: AppBar(
         title: const Text('My Coffees'),
       ),
+      drawer: NavigationDrawer(
+        children: [
+          ListTile(
+            title: const Text(
+              'Coffee Home',
+            ),
+            leading: const Icon(Icons.coffee),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const CoffeePage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text(
+              'Favorites',
+            ),
+            leading: const Icon(Icons.favorite),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      const FavoritesCoffeePage(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -48,7 +82,7 @@ class _CoffeeViewState extends State<CoffeeView> {
                     return const CoffeeLoading();
                   case CoffeeStatus.success:
                     return CoffeePopulated(
-                      coffee: state.coffee,
+                      coffee: state.feedCoffee,
                     );
                   case CoffeeStatus.failure:
                     return const CoffeeError();
@@ -81,8 +115,18 @@ class CoffeeActionsRow extends StatelessWidget {
         CoffeeActionButton(
           icon: const Icon(Icons.shuffle),
           action: context.read<CoffeeCubit>().getRandomCoffee,
-          tooltipText: 'Get another coffe image',
+          tooltipText: 'Get another coffee image',
         ),
+        CoffeeActionButton(
+          icon: const Icon(Icons.favorite),
+          action: context.read<CoffeeCubit>().addFavoriteCoffee,
+          tooltipText: 'Save coffee as favorite',
+        ),
+        // CoffeeActionButton(
+        //   icon: const Icon(Icons.clean_hands),
+        //   action: context.read<CoffeeCubit>().cleanFavoritesCoffees,
+        //   tooltipText: 'Save coffee as favorite',
+        // ),
       ],
     );
   }
@@ -97,7 +141,7 @@ class CoffeeActionButton extends StatelessWidget {
   }) : tooltipText = tooltipText ?? '';
 
   final Icon icon;
-  final Future Function() action;
+  final FutureOr<void> Function() action;
   final String? tooltipText;
 
   @override
