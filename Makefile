@@ -6,3 +6,6 @@ build:
 
 tests:
 	flutter test --coverage --test-randomize-ordering-seed random
+
+build_runner:
+	flutter packages pub run build_runner build

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_coffees/feed/coffee/coffee.dart';
+import 'package:my_coffees/coffee/coffee.dart';
 import 'package:my_coffees/l10n/l10n.dart';
 
 class CoffeeApp extends StatelessWidget {

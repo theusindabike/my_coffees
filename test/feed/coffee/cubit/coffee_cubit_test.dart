@@ -1,9 +1,10 @@
-import 'package:mocktail/mocktail.dart';
-import 'package:my_coffees/feed/coffee/coffee.dart';
-import 'package:my_coffees/feed/coffee/cubit/coffee_cubit.dart';
-import 'package:test/test.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:coffee_api/coffee_api.dart' as coffee_api;
+import 'package:mocktail/mocktail.dart';
+import 'package:my_coffees/coffee/coffee.dart';
+import 'package:test/test.dart';
+
+import '../../../helpers/helpers.dart';
 
 const coffeeImageUrl = 'https://coffee.alexflipnote.dev/Y6itKvnyMps_coffee.jpg';
 
@@ -13,6 +14,7 @@ class MockCoffeeRepository extends Mock
 class MockCoffee extends Mock implements coffee_api.Coffee {}
 
 void main() {
+  initHydratedStorage();
   group('Coffee Cubit', () {
     late coffee_api.Coffee coffee;
     late coffee_api.CoffeeRepository coffeeRepository;
@@ -74,7 +76,7 @@ void main() {
         isA<CoffeeState>()
             .having((cs) => cs.status, 'status', CoffeeStatus.success)
             .having(
-              (cs) => cs.coffee,
+              (cs) => cs.feedCoffee,
               'coffee',
               isA<Coffee>()
                   .having((c) => c.imageUrl, 'imageUrl', coffeeImageUrl),
