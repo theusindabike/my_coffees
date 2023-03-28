@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:coffee_api/coffee_api.dart' as coffee_api;
-import 'package:coffee_api/coffee_api.dart' hide Coffee;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -257,7 +254,9 @@ void main() {
       );
 
       await tester.dragFrom(
-          tester.getTopLeft(find.byType(MaterialApp)), Offset(300, 0));
+        tester.getTopLeft(find.byType(MaterialApp)),
+        const Offset(300, 0),
+      );
 
       await tester.pumpAndSettle();
       await tester.tap(
@@ -278,7 +277,9 @@ void main() {
       );
 
       await tester.dragFrom(
-          tester.getTopLeft(find.byType(MaterialApp)), Offset(300, 0));
+        tester.getTopLeft(find.byType(MaterialApp)),
+        const Offset(300, 0),
+      );
 
       await tester.pumpAndSettle();
       await tester.tap(

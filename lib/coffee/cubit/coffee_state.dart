@@ -20,6 +20,7 @@ class CoffeeState extends Equatable {
   final Coffee feedCoffee;
   late final Set<Coffee> favoritesCoffees;
 
+  // ignore: sort_constructors_first
   factory CoffeeState.fromJson(Map<String, dynamic> json) =>
       _$CoffeeStateFromJson(json);
 

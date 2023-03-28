@@ -1,3 +1,5 @@
+// ignore_for_file: inference_failure_on_instance_creation
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -142,6 +144,7 @@ class CoffeeActionButton extends StatelessWidget {
   }) : tooltipText = tooltipText ?? '';
 
   @override
+  // ignore: overridden_fields
   final Key key;
   final Icon icon;
   final FutureOr<void> Function() action;
