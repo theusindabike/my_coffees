@@ -26,21 +26,23 @@ class FavoritesCoffeeView extends StatefulWidget {
 }
 
 class _FavoritesCoffeeViewState extends State<FavoritesCoffeeView> {
-  void loadFavoritesCoffees() {
-    // context.read<CoffeeCubit>().getFavoritesCoffees();
-  }
-
-  @override
-  void initState() {
-    loadFavoritesCoffees();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Favorites Coffees'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              CoffeeCubit(context.read<CoffeeRepository>())
+                  .cleanAllFavoritesCoffees();
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
+          ),
+        ],
       ),
       body: BlocBuilder<CoffeeCubit, CoffeeState>(
         builder: (context, state) {
