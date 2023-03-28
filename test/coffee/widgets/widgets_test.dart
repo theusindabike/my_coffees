@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:my_coffees/coffee/coffee.dart';
+import 'package:my_coffees/l10n/l10n.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -34,12 +35,13 @@ void main() {
     });
 
     testWidgets('renders CoffeeView', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpApp(
         RepositoryProvider.value(
           value: coffeeRepository,
-          child: const MaterialApp(home: CoffeePage()),
+          child: const CoffeePage(),
         ),
       );
+
       expect(find.byType(CoffeeView), findsOneWidget);
     });
   });
@@ -62,10 +64,10 @@ void main() {
     testWidgets('renders CoffeeInitial for CoffeeStatus.initial',
         (tester) async {
       when(() => coffeeCubit.state).thenReturn(CoffeeState());
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -76,10 +78,10 @@ void main() {
         (tester) async {
       when(() => coffeeCubit.state)
           .thenReturn(CoffeeState(status: CoffeeStatus.loading));
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -90,10 +92,10 @@ void main() {
         (tester) async {
       when(() => coffeeCubit.state)
           .thenReturn(CoffeeState(status: CoffeeStatus.success));
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -103,10 +105,10 @@ void main() {
     testWidgets('renders CoffeeError for CoffeeStatus.failure', (tester) async {
       when(() => coffeeCubit.state)
           .thenReturn(CoffeeState(status: CoffeeStatus.failure));
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -122,10 +124,10 @@ void main() {
         ).toJson(),
       );
 
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: CoffeeCubit(coffeeRepository),
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
       await tester.pumpAndSettle();
@@ -141,10 +143,10 @@ void main() {
         ),
       );
       when(() => coffeeCubit.getRandomCoffee()).thenAnswer((_) async {});
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -165,10 +167,10 @@ void main() {
         ),
       );
 
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -202,20 +204,20 @@ void main() {
     });
 
     testWidgets('renders FavoritesCoffeeView', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpApp(
         RepositoryProvider.value(
           value: coffeeRepository,
-          child: const MaterialApp(home: FavoritesCoffeesPage()),
+          child: const FavoritesCoffeesPage(),
         ),
       );
       expect(find.byType(FavoritesCoffeesView), findsOneWidget);
     });
 
     testWidgets('list Favorites Coffees Image', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: FavoritesCoffeesView()),
+          child: const FavoritesCoffeesView(),
         ),
       );
 
@@ -246,10 +248,10 @@ void main() {
     testWidgets('''
       triggers coffeeRandom Page on tap
       to coffeeDrawer_CoffeeHome_iconButton''', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpApp(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: const CoffeeView(),
         ),
       );
 
@@ -272,7 +274,14 @@ void main() {
       await tester.pumpWidget(
         BlocProvider.value(
           value: coffeeCubit,
-          child: const MaterialApp(home: CoffeeView()),
+          child: RepositoryProvider.value(
+            value: coffeeRepository,
+            child: const MaterialApp(
+              home: CoffeeView(),
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+            ),
+          ),
         ),
       );
 
@@ -285,13 +294,9 @@ void main() {
       await tester.tap(
         find.byKey(const Key('coffeeDrawer_FavoritesCoffees_iconButton')),
       );
+      await tester.pumpAndSettle();
 
-      await tester.pumpWidget(
-        RepositoryProvider.value(
-          value: coffeeRepository,
-          child: const MaterialApp(home: FavoritesCoffeesPage()),
-        ),
-      );
+      expect(find.byType(FavoritesCoffeesPage), findsOneWidget);
     });
   });
 }

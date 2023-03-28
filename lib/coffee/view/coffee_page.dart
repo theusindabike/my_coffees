@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_coffees/coffee/coffee.dart';
+import 'package:my_coffees/l10n/l10n.dart';
 
 class CoffeePage extends StatelessWidget {
   const CoffeePage({super.key});
@@ -32,17 +33,18 @@ class _CoffeeViewState extends State<CoffeeView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Coffees'),
+        title: Text(l10n.myCoffeesAppBarTitle),
       ),
       drawer: NavigationDrawer(
         key: const Key('coffeeDrawer'),
         children: [
           ListTile(
             key: const Key('coffeeDrawer_CoffeeHome_iconButton'),
-            title: const Text(
-              'Coffee Home',
+            title: Text(
+              l10n.myCoffeesAppBarDrawerHomeTitle,
             ),
             leading: const Icon(Icons.coffee),
             onTap: () {
@@ -56,8 +58,8 @@ class _CoffeeViewState extends State<CoffeeView> {
           ),
           ListTile(
             key: const Key('coffeeDrawer_FavoritesCoffees_iconButton'),
-            title: const Text(
-              'Favorites',
+            title: Text(
+              l10n.myCoffeesAppBarDrawerFavoriteTitle,
             ),
             leading: const Icon(Icons.favorite),
             onTap: () {
@@ -112,6 +114,7 @@ class CoffeeActionsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -119,13 +122,13 @@ class CoffeeActionsRow extends StatelessWidget {
           key: const Key('coffeePage_getRandomCoffe_iconButton'),
           icon: const Icon(Icons.shuffle),
           action: context.read<CoffeeCubit>().getRandomCoffee,
-          tooltipText: 'Get another coffee image',
+          tooltipText: l10n.getAnotherCoffeeImageTooltipText,
         ),
         CoffeeActionButton(
           key: const Key('coffeePage_addFavoriteCoffee_iconButton'),
           icon: const Icon(Icons.favorite),
           action: context.read<CoffeeCubit>().addFavoriteCoffee,
-          tooltipText: 'Save coffee as favorite',
+          tooltipText: l10n.addFavoriteCoffeeTooltipText,
         ),
       ],
     );
