@@ -17,13 +17,9 @@ jobs:
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
 
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    #uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    uses: ./.github/workflows/almost_vgv_flutter_package.yaml
     with:
       flutter_channel: stable
-
-  # spell-check:
-  #   uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
-  #   with:
-  #     includes: |
-  #       **/*.md
-  #     modified_files_only: false
+      coverage_excludes: "**/*.g.dart"
+      min_coverage: 90
