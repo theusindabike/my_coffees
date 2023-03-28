@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:coffee_api/coffee_api.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
@@ -69,17 +68,6 @@ void main() {
           throwsA(isA<CoffeNotFoundFailure>()),
         );
       });
-
-      // test('throws CoffeImageUrlNotFoundFailure on empty response', () async {
-      //   final response = MockResponse();
-      //   when(() => response.statusCode).thenReturn(200);
-      //   when(() => response.body).thenReturn('{"file": ""}');
-      //   when(() => httpClient.get(any())).thenAnswer((_) async => response);
-      //   await expectLater(
-      //     api.getRandomCoffee(),
-      //     throwsA(isA<CoffeNotFoundFailure>()),
-      //   );
-      // });
 
       test('returns Coffee on valid response', () async {
         final response = MockResponse();
