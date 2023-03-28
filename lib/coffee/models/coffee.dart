@@ -14,7 +14,6 @@ class Coffee extends Equatable {
 
   Map<String, dynamic> toJson() => _$CoffeeToJson(this);
 
-  // ignore: sort_constructors_first
   factory Coffee.fromRepository(coffee_api.Coffee coffeeFromRepository) {
     return Coffee(imageUrl: coffeeFromRepository.imageUrl);
   }
