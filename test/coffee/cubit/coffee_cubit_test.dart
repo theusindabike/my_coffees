@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:my_coffees/coffee/coffee.dart';
 import 'package:test/test.dart';
 
-import '../../../helpers/helpers.dart';
+import '../../helpers/helpers.dart';
 
 const coffeeImageUrl = 'https://coffee.alexflipnote.dev/Y6itKvnyMps_coffee.jpg';
 
@@ -23,12 +23,12 @@ void main() {
     setUp(() async {
       coffee = MockCoffee();
       coffeeRepository = MockCoffeeRepository();
+      coffeeCubit = CoffeeCubit(coffeeRepository);
 
       when(() => coffee.imageUrl).thenReturn(coffeeImageUrl);
       when(
         () => coffeeRepository.getRandomCoffee(),
       ).thenAnswer((_) async => coffee);
-      coffeeCubit = CoffeeCubit(coffeeRepository);
     });
     group('constructor', () {
       test('instantiates coffee cubit correctly', () {
@@ -47,6 +47,21 @@ void main() {
             () => coffeeRepository.getRandomCoffee(),
           ).called(1);
         },
+      );
+    });
+
+    group('addFavoriteCoffee', () {
+      blocTest<CoffeeCubit, CoffeeState>(
+        'calls addFavoriteCoffee',
+        build: () => coffeeCubit,
+        act: (cubit) => cubit.addFavoriteCoffee(),
+        expect: () => <dynamic>[
+          isA<CoffeeState>().having(
+            (cs) => cs.favoritesCoffees,
+            'favoritesCoffees',
+            isA<Set<Coffee>>(),
+          ),
+        ],
       );
     });
 

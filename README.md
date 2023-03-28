@@ -46,6 +46,9 @@ $ flutter test --coverage --test-randomize-ordering-seed random
 To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
 
 ```sh
+# Remove from coverage .g.dart files
+$ remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$'
+
 # Generate Coverage Report
 $ genhtml coverage/lcov.info -o coverage/
 

@@ -37,8 +37,10 @@ class _CoffeeViewState extends State<CoffeeView> {
         title: const Text('My Coffees'),
       ),
       drawer: NavigationDrawer(
+        key: const Key('coffeeDrawer'),
         children: [
           ListTile(
+            key: const Key('coffeeDrawer_CoffeeHome_iconButton'),
             title: const Text(
               'Coffee Home',
             ),
@@ -53,6 +55,7 @@ class _CoffeeViewState extends State<CoffeeView> {
             },
           ),
           ListTile(
+            key: const Key('coffeeDrawer_FavoritesCoffees_iconButton'),
             title: const Text(
               'Favorites',
             ),
@@ -62,7 +65,7 @@ class _CoffeeViewState extends State<CoffeeView> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      const FavoritesCoffeePage(),
+                      const FavoritesCoffeesPage(),
                 ),
               );
             },
@@ -124,11 +127,6 @@ class CoffeeActionsRow extends StatelessWidget {
           action: context.read<CoffeeCubit>().addFavoriteCoffee,
           tooltipText: 'Save coffee as favorite',
         ),
-        // CoffeeActionButton(
-        //   icon: const Icon(Icons.clean_hands),
-        //   action: context.read<CoffeeCubit>().cleanFavoritesCoffees,
-        //   tooltipText: 'Save coffee as favorite',
-        // ),
       ],
     );
   }
