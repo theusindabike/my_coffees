@@ -67,5 +67,8 @@ $ make coverage_tests
 ```
 ---
 ## Next steps
+- Improve buttons feedback:
+    1. when tap to get a new random coffee image
+    2. when tap to save image as favorite coffee
 - Use AppLocalization ([PR](https://github.com/theusindabike/my_coffees/pull/6))
 - Implement "clean all favorites coffees" ([PR](https://github.com/theusindabike/my_coffees/pull/7))

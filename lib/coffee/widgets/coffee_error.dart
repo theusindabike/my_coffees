@@ -6,14 +6,20 @@ class CoffeeError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Sorry, but something goes wrong. Please try again later.',
-          style: theme.textTheme.headlineSmall,
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            'Something went wrong',
+            style: theme.textTheme.headlineSmall,
+          ),
+          Text(
+            'Please, check your internet conection an try again later',
+            style: theme.textTheme.bodyMedium,
+          ),
+        ],
+      ),
     );
   }
 }
