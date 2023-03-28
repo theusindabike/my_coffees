@@ -70,6 +70,5 @@ $ make coverage_tests
 - Add UI feedbacks:
     1. when user tap button to get a new random coffee image
     2. when user tap button to save image as favorite coffee
-- Add [AppLocalization](https://docs.flutter.dev/development/accessibility-and-localization/internationalization) ([PR](https://github.com/theusindabike/my_coffees/pull/6))
 - Add "Clean all favorites coffees" functionality ([PR](https://github.com/theusindabike/my_coffees/pull/7))
 
