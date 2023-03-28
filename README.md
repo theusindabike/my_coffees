@@ -8,8 +8,8 @@ This is a simple application, with the following features.
 #### Tech approach:
 - Inspired by [Block Wheather Tutorial](https://bloclibrary.dev/#/flutterweathertutorial)
 - [hydrated_bloc](https://pub.dev/packages/hydrated_bloc) to persist and restore state
-- [cached_network_image](https://pub.dev/packages/cached_network_image) to cache network images, as well improve loading and storage perfomance
-- CoffeeImageAPI built as an isolated package
+- [cached_network_image](https://pub.dev/packages/cached_network_image) to cache network images, as well, improve loading and local storage perfomance
+- CoffeeImageAPI built as an isolate package
 
 ---
 
@@ -70,5 +70,5 @@ $ make coverage_tests
 - Add UI feedbacks:
     1. when user tap button to get a new random coffee image
     2. when user tap button to save image as favorite coffee
-- Add [AppLocalization](https://docs.flutter.dev/development/accessibility-and-localization/internationalization) ([PR](https://github.com/theusindabike/my_coffees/pull/6))
 - Add "Clean all favorites coffees" functionality ([PR](https://github.com/theusindabike/my_coffees/pull/7))
+

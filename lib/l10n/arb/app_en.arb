@@ -1,7 +1,39 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
+    "myCoffeesAppBarTitle": "My Coffees",
+    "@myCoffeesAppBarTitle": {
+        "description": "Text shown in the AppBar of the myCoffees Page"
+    },
+    "myCoffeesAppBarDrawerHomeTitle": "Coffee Home",
+    "@myCoffeesAppBarDrawerHomeTitle": {
+        "description": "Text shown in the AppBar Drawer Home Page"
+    },
+    "myCoffeesAppBarDrawerFavoriteTitle": "Favorites",
+    "@myCoffeesAppBarDrawerFavoriteTitle": {
+        "description": "Text shown in the AppBar Drawer favorites Page"
+    },
+    "getAnotherCoffeeImageTooltipText": "Get another coffee image",
+    "@getAnotherCoffeeImageTooltipText": {
+        "description": "Text shown in the Tooltip of the coffeePage_getRandomCoffe_iconButton IconButton"
+    },
+    "addFavoriteCoffeeTooltipText": "Save coffee as favorite",
+    "@addFavoriteCoffeeTooltipText": {
+        "description": "Text shown in the Tooltip of the coffeePage_addFavoriteCoffee_iconButton IconButton"
+    },
+    "myFavoritesCoffeesAppBarTitle": "My Favorites Coffees",
+    "@myFavoritesCoffeesAppBarTitle": {
+        "description": "Text shown in the AppBar of the myFavoritesCoffees Page"
+    },
+    "errorMessageTitle": "Something went wrong",
+    "@errorMessageTitle": {
+        "description": "Title text shown when error occurs"
+    },
+    "errorMessageSubtitle": "There has been an error",
+    "@errorMessageSubtitle": {
+        "description": "Subtitle text shown when error occurs"
+    },
+    "noInternetMessage": "Please, check your internet conection an try again later",
+    "@noInternetMessage": {
+        "description": "Text shown when no internet connection occurs"
     }
 }
