@@ -18,7 +18,7 @@ jobs:
 
   build:
     #uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
-    uses: ./.github/workflows/flutter_package.yml
+    uses: ./.github/workflows/almost_vgv_flutter_package.yaml
     with:
       flutter_channel: stable
       coverage_excludes: "**/*.g.dart"
