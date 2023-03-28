@@ -30,6 +30,11 @@ class CoffeeCubit extends HydratedCubit<CoffeeState> {
     }
   }
 
+  void cleanAllFavoritesCoffees() {
+    final emptyFavoritesCoffees = <Coffee>{};
+    emit(state.copyWith(favoritesCoffees: emptyFavoritesCoffees));
+  }
+
   void addFavoriteCoffee() {
     final updatedFavoritesCoffees = Set<Coffee>.from(state.favoritesCoffees)
       ..add(state.feedCoffee);
