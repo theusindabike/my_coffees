@@ -1,3 +1,5 @@
+// ignore_for_file: inference_failure_on_instance_creation
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -37,8 +39,10 @@ class _CoffeeViewState extends State<CoffeeView> {
         title: const Text('My Coffees'),
       ),
       drawer: NavigationDrawer(
+        key: const Key('coffeeDrawer'),
         children: [
           ListTile(
+            key: const Key('coffeeDrawer_CoffeeHome_iconButton'),
             title: const Text(
               'Coffee Home',
             ),
@@ -53,6 +57,7 @@ class _CoffeeViewState extends State<CoffeeView> {
             },
           ),
           ListTile(
+            key: const Key('coffeeDrawer_FavoritesCoffees_iconButton'),
             title: const Text(
               'Favorites',
             ),
@@ -62,7 +67,7 @@ class _CoffeeViewState extends State<CoffeeView> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      const FavoritesCoffeePage(),
+                      const FavoritesCoffeesPage(),
                 ),
               );
             },
@@ -113,33 +118,34 @@ class CoffeeActionsRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CoffeeActionButton(
+          key: const Key('coffeePage_getRandomCoffe_iconButton'),
           icon: const Icon(Icons.shuffle),
           action: context.read<CoffeeCubit>().getRandomCoffee,
           tooltipText: 'Get another coffee image',
         ),
         CoffeeActionButton(
+          key: const Key('coffeePage_addFavoriteCoffee_iconButton'),
           icon: const Icon(Icons.favorite),
           action: context.read<CoffeeCubit>().addFavoriteCoffee,
           tooltipText: 'Save coffee as favorite',
         ),
-        // CoffeeActionButton(
-        //   icon: const Icon(Icons.clean_hands),
-        //   action: context.read<CoffeeCubit>().cleanFavoritesCoffees,
-        //   tooltipText: 'Save coffee as favorite',
-        // ),
       ],
     );
   }
 }
 
 class CoffeeActionButton extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const CoffeeActionButton({
-    super.key,
+    required this.key,
     required this.icon,
     required this.action,
     String? tooltipText,
   }) : tooltipText = tooltipText ?? '';
 
+  @override
+  // ignore: overridden_fields
+  final Key key;
   final Icon icon;
   final FutureOr<void> Function() action;
   final String? tooltipText;

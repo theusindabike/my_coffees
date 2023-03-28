@@ -5,11 +5,6 @@ enum CoffeeStatus {
   loading,
   success,
   failure;
-
-  bool get isInitial => this == CoffeeStatus.initial;
-  bool get isLoading => this == CoffeeStatus.loading;
-  bool get isSuccess => this == CoffeeStatus.success;
-  bool get isFailure => this == CoffeeStatus.failure;
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -25,6 +20,7 @@ class CoffeeState extends Equatable {
   final Coffee feedCoffee;
   late final Set<Coffee> favoritesCoffees;
 
+  // ignore: sort_constructors_first
   factory CoffeeState.fromJson(Map<String, dynamic> json) =>
       _$CoffeeStateFromJson(json);
 
@@ -35,10 +31,6 @@ class CoffeeState extends Equatable {
 
   void addFeedCoffeToFavotite() {
     favoritesCoffees.add(feedCoffee);
-  }
-
-  void cleanFavoritesCoffees() {
-    favoritesCoffees = <Coffee>{};
   }
 
   CoffeeState copyWith({

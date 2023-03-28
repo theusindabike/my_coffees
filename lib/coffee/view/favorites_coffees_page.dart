@@ -4,38 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_coffees/coffee/coffee.dart';
 
-class FavoritesCoffeePage extends StatelessWidget {
-  const FavoritesCoffeePage({super.key});
+class FavoritesCoffeesPage extends StatelessWidget {
+  const FavoritesCoffeesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CoffeeCubit(context.read<CoffeeRepository>()),
-      child: const FavoritesCoffeeView(),
+      child: const FavoritesCoffeesView(),
     );
   }
 }
 
-class FavoritesCoffeeView extends StatefulWidget {
-  const FavoritesCoffeeView({
+class FavoritesCoffeesView extends StatefulWidget {
+  const FavoritesCoffeesView({
     super.key,
   });
 
   @override
-  State<FavoritesCoffeeView> createState() => _FavoritesCoffeeViewState();
+  State<FavoritesCoffeesView> createState() => _FavoritesCoffeesViewState();
 }
 
-class _FavoritesCoffeeViewState extends State<FavoritesCoffeeView> {
-  void loadFavoritesCoffees() {
-    // context.read<CoffeeCubit>().getFavoritesCoffees();
-  }
-
-  @override
-  void initState() {
-    loadFavoritesCoffees();
-    super.initState();
-  }
-
+class _FavoritesCoffeesViewState extends State<FavoritesCoffeesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
