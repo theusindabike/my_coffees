@@ -27,7 +27,7 @@ $ flutter pub run build_runner build --delete-conflicting-outputs
 $ flutter run --flavor development --target lib/main_development.dart
 ```
 
-Using Makefile:
+Using Makefile + [fvm](https://fvm.app/):
 ```sh
 # Get dependencies
 $ make prebuild
@@ -57,7 +57,7 @@ $ genhtml coverage/lcov.info -o coverage/
 $ open coverage/index.html
 ```
 
-Using Makefile:
+Using Makefile + [fvm](https://fvm.app/):
 ```sh
 # Without coverage output
 $ make tests
