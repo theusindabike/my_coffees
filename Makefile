@@ -14,3 +14,6 @@ coverage_tests:
 
 build_runner:
 	fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+githubactions_build_runner:
+	flutter pub run build_runner build --delete-conflicting-outputs
