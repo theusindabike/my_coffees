@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_coffees/coffee/coffee.dart';
+import 'package:my_coffees/l10n/l10n.dart';
 
 class FavoritesCoffeesPage extends StatelessWidget {
   const FavoritesCoffeesPage({super.key});
@@ -28,9 +29,10 @@ class FavoritesCoffeesView extends StatefulWidget {
 class _FavoritesCoffeesViewState extends State<FavoritesCoffeesView> {
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Favorites Coffees'),
+        title: Text(l10n.myFavoritesCoffeesAppBarTitle),
       ),
       body: BlocBuilder<CoffeeCubit, CoffeeState>(
         builder: (context, state) {
