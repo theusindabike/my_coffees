@@ -113,11 +113,13 @@ class CoffeeActionsRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CoffeeActionButton(
+          key: const Key('coffeePage_getRandomCoffe_iconButton'),
           icon: const Icon(Icons.shuffle),
           action: context.read<CoffeeCubit>().getRandomCoffee,
           tooltipText: 'Get another coffee image',
         ),
         CoffeeActionButton(
+          key: const Key('coffeePage_addFavoriteCoffee_iconButton'),
           icon: const Icon(Icons.favorite),
           action: context.read<CoffeeCubit>().addFavoriteCoffee,
           tooltipText: 'Save coffee as favorite',
@@ -133,13 +135,16 @@ class CoffeeActionsRow extends StatelessWidget {
 }
 
 class CoffeeActionButton extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const CoffeeActionButton({
-    super.key,
+    required this.key,
     required this.icon,
     required this.action,
     String? tooltipText,
   }) : tooltipText = tooltipText ?? '';
 
+  @override
+  final Key key;
   final Icon icon;
   final FutureOr<void> Function() action;
   final String? tooltipText;

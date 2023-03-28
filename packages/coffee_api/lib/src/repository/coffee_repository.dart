@@ -6,7 +6,7 @@ class CoffeeRepository {
 
   final AlexflipnoteCoffeeAPI _coffeeAPI;
 
-  Future<Coffee> getRandomCoffee() {
+  Future<Coffee> getRandomCoffee() async {
     return _coffeeAPI.getRandomCoffee();
   }
 }
