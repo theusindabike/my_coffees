@@ -68,4 +68,4 @@ $ make coverage_tests
 ---
 ## Next steps
 - Use AppLocalization ([PR](https://github.com/theusindabike/my_coffees/pull/6))
-- Implement 'clean all favorites coffees  ([PR](https://github.com/theusindabike/my_coffees/pull/7))
+- Implement "clean all favorites coffees" ([PR](https://github.com/theusindabike/my_coffees/pull/7))
