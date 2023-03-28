@@ -1,5 +1,3 @@
-// ignore_for_file: inference_failure_on_instance_creation
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -50,7 +48,7 @@ class _CoffeeViewState extends State<CoffeeView> {
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) => const CoffeePage(),
                 ),
               );
@@ -65,7 +63,7 @@ class _CoffeeViewState extends State<CoffeeView> {
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (BuildContext context) =>
                       const FavoritesCoffeesPage(),
                 ),
@@ -135,17 +133,13 @@ class CoffeeActionsRow extends StatelessWidget {
 }
 
 class CoffeeActionButton extends StatelessWidget {
-  // ignore: use_key_in_widget_constructors
   const CoffeeActionButton({
-    required this.key,
+    super.key,
     required this.icon,
     required this.action,
     String? tooltipText,
   }) : tooltipText = tooltipText ?? '';
 
-  @override
-  // ignore: overridden_fields
-  final Key key;
   final Icon icon;
   final FutureOr<void> Function() action;
   final String? tooltipText;

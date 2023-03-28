@@ -27,16 +27,13 @@ void main() {
           await coffeeRepository.getRandomCoffee();
         } catch (_) {}
 
-        // assert
         verify(() => coffeeAPI.getRandomCoffee()).called(1);
       });
 
       test('throws error when coffeeAPI fails', () async {
-        // mock
         final exception = Exception('fails');
         when(() => coffeeAPI.getRandomCoffee()).thenThrow(exception);
 
-        // assert
         expect(
           () async => coffeeRepository.getRandomCoffee(),
           throwsA(exception),
