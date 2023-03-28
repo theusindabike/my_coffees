@@ -68,7 +68,6 @@ $ make coverage_tests
 ---
 ## Next steps
 - Add UI feedbacks:
-    1. when user tap button to get a new random coffee image
-    2. when user tap button to save image as favorite coffee
+    1. when user taps button to get a new random coffee image
+    2. when user taps button to save image as favorite coffee
 - Add "Clean all favorites coffees" functionality ([PR](https://github.com/theusindabike/my_coffees/pull/7))
-
