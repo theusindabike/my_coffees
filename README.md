@@ -8,8 +8,8 @@ This is a simple application, with the following features.
 #### Tech approach:
 - Inspired by [Block Wheather Tutorial](https://bloclibrary.dev/#/flutterweathertutorial)
 - [hydrated_bloc](https://pub.dev/packages/hydrated_bloc) to persist and restore state
-- [cached_network_image](https://pub.dev/packages/cached_network_image) to cache network images, as well improve loading and storage perfomance
-- CoffeeImageAPI built as an isolated package
+- [cached_network_image](https://pub.dev/packages/cached_network_image) to cache network images, as well, improve loading and local storage perfomance
+- CoffeeImageAPI built as an isolate package
 
 ---
 
