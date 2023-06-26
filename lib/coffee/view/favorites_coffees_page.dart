@@ -10,8 +10,9 @@ class FavoritesCoffeesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CoffeeCubit(context.read<CoffeeRepository>()),
+    return BlocProvider.value(
+      // create: (context) => CoffeeCubit(context.read<CoffeeRepository>()),
+      value: BlocProvider.of<CoffeeCubit>(context),
       child: const FavoritesCoffeesView(),
     );
   }
